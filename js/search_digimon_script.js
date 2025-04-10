@@ -26,9 +26,11 @@ function displayDigimon(digimons) {
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
+            <div class="card-result">
             <h2>${digimon.name}</h2>
             <img src="${digimon.img}" alt="Imagen de ${digimon.name}">
             <p>Nivel: ${digimon.level}</p>
+            </div>
         `;
         container.appendChild(card);
     });
