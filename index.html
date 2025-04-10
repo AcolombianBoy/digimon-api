@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia de Digimons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Wikipedia de Digimons</h1>
+        <p>Consulta información sobre tus Digimons favoritos</p>
+        <nav> <!-- Menú de navegación -->
+            <div class="menu">
+                <button onclick="">Home</button>
+                <button onclick="">Usuario</button>
+                <button onclick="">Aleatorios</button>
+                <button onclick="">Favoritos</button>
+                <button onclick="">Coleccionados</button>
+            </div>
+        </nav>
+    </header>
+    <section class="search_digimon">
+        <input type="text" id="search" placeholder="Buscar Digimon...">
+        <button id="search-button">Buscar</button>
+    </section>
+    <main>
+        <!-- Contenedor donde se renderizarán las tarjetas de Digimon -->
+        <div id="digimon-container" class="grid-container"></div>
+    </main>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="/js/script.js"></script>
+    </body>
+</html>

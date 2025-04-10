@@ -1,0 +1,77 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+} 
+  /* Encabezado */
+header {
+  text-align: center;
+  background: #333;
+  padding-top: 1rem;
+  color: #fff;
+} 
+  /* Contenedor para las tarjetas en formato grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+  /* Estilo para las tarjetas de cada Digimon */
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+  /* Imagen del Digimon */
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+nav {
+  width: 100%;
+  background: red;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+nav button {
+  background: #fff;
+  color: red;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+}
+.search_digimon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.search_digimon input {
+  width: 25%;
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search_digimon button {
+  background: #fff;
+  color: red;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+}
