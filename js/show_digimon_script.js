@@ -1,7 +1,4 @@
-// Espera a que el DOM se haya cargado
-document.addEventListener('DOMContentLoaded', () => {
-    fetchDigimons();
-}); 
+
   // Función asíncrona para obtener los Digimons desde la API
 async function fetchDigimons() {
     try {
@@ -15,6 +12,10 @@ async function fetchDigimons() {
         console.error('Error al obtener los Digimons:', error);
     }
 }
+// Espera a que el DOM se haya cargado
+document.addEventListener('DOMContentLoaded', () => {
+    fetchDigimons();
+}); 
   // Función para renderizar cada Digimon en una tarjeta
 function displayDigimons(digimons) {
     const container = document.getElementById('digimon-container');
