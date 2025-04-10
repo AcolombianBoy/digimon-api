@@ -1,3 +1,18 @@
+// Función para mostrar el Digimon en pantalla
+let digiData = JSON.parse(localStorage.getItem('digimons'));
+function displayDigimon(digimons) {
+    const container = document.getElementById('digimon-container');
+    digimons.forEach(digimon => {
+        const search_card = document.createElement('div');
+        search_card.className = 'search_card';
+        search_card.innerHTML = `
+            <h2>${digimon.name}</h2>
+            <img src="${digimon.img}" alt="Imagen de ${digimon.name}">
+            <p>Nivel: ${digimon.level}</p>
+        `;
+        container.appendChild(search_card);
+    });
+}
 // Función para buscar Digimons por nombre
 async function searchDigimon() {
     const searchInput = document.getElementById('search').value.trim();
@@ -18,23 +33,5 @@ async function searchDigimon() {
         container.innerHTML = `<p>Error: ${error.message}</p>`;
     }
 }
-
-// Función para mostrar el Digimon en pantalla
-function displayDigimon(digimons) {
-    const container = document.getElementById('digimon-container');
-    digimons.forEach(digimon => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-            <div class="card-result">
-            <h2>${digimon.name}</h2>
-            <img src="${digimon.img}" alt="Imagen de ${digimon.name}">
-            <p>Nivel: ${digimon.level}</p>
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}
-
 // Agregar evento al botón de búsqueda
 document.getElementById('search-button').addEventListener('click', searchDigimon);
