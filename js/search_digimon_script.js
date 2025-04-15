@@ -1,7 +1,7 @@
 // Función para mostrar el Digimon en pantalla
-let digiData = JSON.parse(localStorage.getItem('digimons'));
 function displayDigimon(digimons) {
     const container = document.getElementById('digimon-container');
+    container.innerHTML = ''; // Limpiar resultados anteriores
     digimons.forEach(digimon => {
         const search_card = document.createElement('div');
         search_card.className = 'search_card';
@@ -15,23 +15,34 @@ function displayDigimon(digimons) {
 }
 // Función para buscar Digimons por nombre
 async function searchDigimon() {
-    const searchInput = document.getElementById('search').value.trim();
+    const searchInput = document.getElementById('search').value.trim().toLowerCase(); // Convertir a minúsculas
     const container = document.getElementById('digimon-container');
     container.innerHTML = ''; // Limpiar resultados anteriores
-    if (!searchInput) {
-        container.innerHTML = '<p>Por favor, ingresa un nombre para buscar.</p>';
-        return;
-    }
     try {
-        const response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${searchInput}`);
+        const response = await fetch('https://digimon-api.vercel.app/api/digimon');
         if (!response.ok) {
-            throw new Error('Digimon no encontrado');
+            throw new Error('Error al obtener los Digimons');
         }
-        const digimon = await response.json();
-        displayDigimon(digimon);
+        const digimons = await response.json();
+        // Buscar coincidencia exacta
+        const exactMatch = digimons.filter(digimon => digimon.name.toLowerCase() === searchInput);
+        // Buscar coincidencias parciales (nombres similares)
+        const partialMatches = digimons.filter(digimon => digimon.name.toLowerCase().includes(searchInput));
+        if (exactMatch.length > 0) {
+            hide_welcome();
+            displayDigimon(exactMatch); // Mostrar coincidencia exacta
+        } else if (partialMatches.length > 0) {
+            hide_welcome();
+            container.innerHTML = '<p>No se encontró una coincidencia exacta, pero aquí hay nombres similares:</p>';
+            displayDigimon(partialMatches); // Mostrar coincidencias parciales
+        } else {
+            hide_welcome();
+            container.innerHTML = '<p>No se encontraron Digimons con ese nombre.</p>';
+        }
     } catch (error) {
         container.innerHTML = `<p>Error: ${error.message}</p>`;
     }
 }
+
 // Agregar evento al botón de búsqueda
 document.getElementById('search-button').addEventListener('click', searchDigimon);

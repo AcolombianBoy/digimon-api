@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikipedia de Digimons</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="/search_card.css">
+    <link rel="stylesheet" href="/search_system_style.css">
+    <link rel="stylesheet" href="./show_digimon_system_styles.css">
 </head>
 <body>
     <header>
@@ -13,9 +14,9 @@
         <p>Consulta información sobre tus Digimons favoritos</p>
         <nav> <!-- Menú de navegación -->
             <div class="menu">
-                <button onclick="">Home</button>
-                <button onclick="">Usuario</button>
-                <button onclick="">Aleatorios</button>
+                <button onclick="fetchDigimons()">Todos</button>
+                <button onclick="">Pelea</button>
+                <button onclick="">Captura</button>
                 <button onclick="">Favoritos</button>
                 <button onclick="">Coleccionados</button>
             </div>
@@ -25,12 +26,18 @@
         <input type="text" id="search" placeholder="Buscar Digimon...">
         <button id="search-button">Buscar</button>
     </section>
-    <main>
-        <!-- Contenedor donde se renderizarán las tarjetas de Digimon -->
+    <div id="welcome">
+        <h2>Bienvenido a la Wikipedia de Digimons</h2>
+        <p>Explora y descubre información sobre tus Digimons favoritos.</p>
+        <p>Utiliza la barra de búsqueda para encontrar información específica.</p>
+        <p>Haz clic en "Todos" para ver la lista completa de Digimons.</p>
+    </div>
+    <main><!-- Contenedor donde se renderizarán los cambios -->
+
         <div id="digimon-container" class="grid-container"></div>
     </main>
-
     <!-- Enlace al archivo JavaScript -->
+    <script src="/js/hide_elements.js"></script>
     <script src="/js/show_digimon_script.js"></script>
     <script src="/js/search_digimon_script.js"></script>
     </body>
