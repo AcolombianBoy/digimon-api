@@ -1,0 +1,56 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+} 
+main{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+  /* Encabezado */
+.banner {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 400px) {
+  .banner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .banner img {
+    width: 100%;
+  }
+}
+nav {
+  width: 100%;
+  background: red;
+  color: #fff;
+  text-align: center;
+}
+nav button {
+  background: #fff;
+  color: red;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+}
+nav button:hover {
+  transform: scale(1.30);
+  transition: all 0.3s ease;
+}
+
+#welcome {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+  color: #333;
+}
+
