@@ -62,7 +62,8 @@ function punch() {
     // Agitar la tarjeta del Digimon
     shakeElement('digi_shake');
     if (window.DigimonHealth <= 0) {
-        alert('¡Has ganado!');
+        const container = document.getElementById('fight_container');
+        container.innerHTML = `<p>¡Has ganado! El Digimon ha sido derrotado.</p>`;
         Digimon_fight(); // Recargar la pelea
     }
 }
