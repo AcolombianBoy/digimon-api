@@ -28,3 +28,21 @@ function hide_all() {
         console.warn('No se encontró ningún elemento con el ID "card".');
     }
 }
+function hide_Digimon_Capture() {
+    const captureCards = document.getElementsByClassName('capture_card');
+    if (captureCards.length > 0) {
+        captureCards[0].style.display = 'none'; // Ocultar la primera tarjeta de captura
+    } else {
+        console.log('No se encontraron elementos con la clase "capture_card".');
+    }
+}
+function hide_collected() {
+    const cards = document.getElementsByClassName('card');
+    if (cards.length > 0) {
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].style.display = 'none'; // Ocultar todas las tarjetas
+        }
+    } else {
+        console.log('No se encontraron elementos con la clase "card".');
+    }
+}

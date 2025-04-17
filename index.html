@@ -18,13 +18,28 @@
             <div class="menu">
                 <button onclick="fetchDigimons()">Todos</button>
                 <button onclick="Digimon_fight()">Pelea</button>
-                <button onclick="">Captura</button>
-                <button onclick="">Favoritos</button>
-                <button onclick="">Coleccionados</button>
+                <button onclick="captureDigimon()">Captura</button>
+                <button onclick="showCollectedDigimons()">Coleccionados</button>
             </div>
         </nav>
     </header>
     <section class="search_digimon">
+        <details>
+            <summary>Filtro</summary>
+            <div class="filter-options">
+                <label for="type">Nivel</label>
+                <select id="type" name="type">
+                    <option value="all">Todos</option>
+                    <option value="fresh">Fresh</option>
+                    <option value="rookie">Rookie</option>
+                    <option value="armor">Armor</option>
+                    <option value="ultimate">Ultimate</option>
+                    <option value="champion">Champion</option>
+                    <option value="mega">Mega</option>
+                </select>
+                <button onclick="filterDigimons()">aplicar</button>
+        </details>                
+        
         <input type="text" id="search" placeholder="Buscar Digimon...">
         <button id="search-button">Buscar</button>
     </section>
@@ -34,7 +49,7 @@
         <p>Utiliza la barra de búsqueda para encontrar información específica.</p>
         <p>Haz clic en "Todos" para ver la lista completa de Digimons.</p>
     </div>
-    <main><!-- Contenedor donde se renderizarán los cambios -->
+    <main id="main"><!-- Contenedor donde se renderizarán los cambios -->
         <div id="digimon-container" class="grid-container"></div>
         <div id="fight_container" class="fight_flex"></div>
     </main>
@@ -46,5 +61,8 @@
     <script src="./js/show_digimon_script.js"></script>
     <script src="./js/search_digimon_script.js"></script>
     <script src="./js/fight_script.js"></script>
+    <script src="./js/search_filter_script.js"></script>
+    <script src="./js/capture_digimon_script.js"></script>
+    <script src="./js/Digimon_collection_script.js"></script>
     </body>
 </html>

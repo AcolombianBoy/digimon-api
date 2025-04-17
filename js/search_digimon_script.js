@@ -17,6 +17,10 @@ function displayDigimon(digimons) {
 async function searchDigimon() {
     const searchInput = document.getElementById('search').value.trim().toLowerCase(); // Convertir a minúsculas
     const container = document.getElementById('digimon-container');
+    const fightContainer = document.getElementById('fight_container');
+    // Mostrar el contenedor de búsqueda y ocultar el de pelea
+    container.style.display = 'grid'; // Asegúrate de que el contenedor sea visible
+    fightContainer.style.display = 'none'; // Ocultar el contenedor de pelea
     container.innerHTML = ''; // Limpiar resultados anteriores
     try {
         const response = await fetch('https://digimon-api.vercel.app/api/digimon');
@@ -29,13 +33,16 @@ async function searchDigimon() {
         // Buscar coincidencias parciales (nombres similares)
         const partialMatches = digimons.filter(digimon => digimon.name.toLowerCase().includes(searchInput));
         if (exactMatch.length > 0) {
+            hide_fight_container()
             hide_welcome();
             displayDigimon(exactMatch); // Mostrar coincidencia exacta
         } else if (partialMatches.length > 0) {
+            hide_fight_container()
             hide_welcome();
             container.innerHTML = '<p>No se encontró una coincidencia exacta, pero aquí hay nombres similares:</p>';
             displayDigimon(partialMatches); // Mostrar coincidencias parciales
         } else {
+            hide_fight_container()
             hide_welcome();
             container.innerHTML = '<p>No se encontraron Digimons con ese nombre.</p>';
         }
