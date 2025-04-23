@@ -46,3 +46,11 @@ function hide_collected() {
         console.log('No se encontraron elementos con la clase "card".');
     }
 }
+function hide_profile(){
+    const container = document.getElementById('profile_container');
+    if(container) { // Verifica si el elemento existe
+        container.style.display = 'none'; // Ocultar el contenedor de perfil
+    } else {
+        console.warn('No se encontró ningún elemento con el ID "profile_container".');
+    }
+}

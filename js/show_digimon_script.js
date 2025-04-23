@@ -1,11 +1,12 @@
 // Función asíncrona para obtener los Digimons desde la API
 async function fetchDigimons() {
     try {
-        // Ocultar otros contenedores
-        hide_welcome(); // Ocultar mensaje de bienvenida
-        hide_search_card(); // Ocultar tarjeta de búsqueda
-        hide_fight_container(); // Ocultar contenedor de pelea
-        // Mostrar el contenedor de Digimons
+        hide_welcome();
+        hide_search_card();
+        hide_fight_container(); 
+        hide_profile();
+        hide_collected(); 
+        hide_Digimon_Capture(); 
         const container = document.getElementById('digimon-container');
         container.style.display = 'grid'; // Asegúrate de que el contenedor sea visible
         const response = await fetch('https://digimon-api.vercel.app/api/digimon'); 

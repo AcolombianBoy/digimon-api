@@ -1,0 +1,50 @@
+.profile_flex {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.profile_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle, rgb(255, 0, 51), rgb(152, 152, 152));
+    width: 100%;
+    height: 45rem;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title h1 {
+    font-size: 45px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.title p {
+    font-size: 25px;
+    color: white;
+}
+img {
+    margin: 20px;
+    align-items: center;
+    width: 90%;
+    height: 300px;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    padding: 5px;
+    border: 2px black solid;
+    border-radius: 20px;
+    background-color: red;
+    justify-content: center;
+    color: white;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

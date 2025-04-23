@@ -7,6 +7,8 @@ async function captureDigimon() {
     hide_welcome();
     hide_fight_container();
     hide_all();
+    hide_profile();
+    hide
     const container = document.getElementById('digimon-container');
     container.style.display = 'grid'; // Asegúrate de que el contenedor sea visible
     container.innerHTML = ''; // Limpiar el contenedor

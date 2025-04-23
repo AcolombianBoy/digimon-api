@@ -3,6 +3,7 @@ async function Digimon_fight() {
     hide_search_card(); // Ocultar tarjeta de búsqueda
     playTheme();
     hide_all();
+    hide_profile();
     const container = document.getElementById('fight_container');
     container.style.display = 'flex'; // Asegúrate de que el contenedor sea visible
     container.innerHTML = ''; // Limpiar el contenedor

@@ -35,15 +35,18 @@ async function searchDigimon() {
         if (exactMatch.length > 0) {
             hide_fight_container()
             hide_welcome();
+            hide_profile();
             displayDigimon(exactMatch); // Mostrar coincidencia exacta
         } else if (partialMatches.length > 0) {
             hide_fight_container()
             hide_welcome();
+            hide_profile();
             container.innerHTML = '<p>No se encontró una coincidencia exacta, pero aquí hay nombres similares:</p>';
             displayDigimon(partialMatches); // Mostrar coincidencias parciales
         } else {
             hide_fight_container()
             hide_welcome();
+            hide_profile();
             container.innerHTML = '<p>No se encontraron Digimons con ese nombre.</p>';
         }
     } catch (error) {

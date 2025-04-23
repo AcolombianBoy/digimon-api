@@ -24,7 +24,7 @@ main{
   }
   .banner img {
     width: 100%;
-    height: auto;
+    height: 200px;
   }
 }
 nav {
@@ -32,6 +32,11 @@ nav {
   background: red;
   color: #fff;
   text-align: center;
+  border-bottom-left-radius: 20px;  /* Radio para la esquina inferior izquierda */
+  border-bottom-right-radius: 20px;
+  position: sticky;  /* Hacer el nav sticky */
+  top: 0;           /* Pegarlo a la parte superior */
+  z-index: 1000;    /* Asegurar que esté por encima de otros elementos */
 }
 nav button {
   background: #fff;
