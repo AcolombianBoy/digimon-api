@@ -1,11 +1,23 @@
 function create_profile(){
     const profile_container = document.getElementById('profile_container');
+    
+    // Hacer visible el contenedor primero
+    profile_container.style.display = 'flex';
+    
+    // Verificar si ya existe una tarjeta de perfil
+    const existingCard = document.querySelector('.profile_card');
+    if (existingCard) {
+        return;
+    }
+
+    // Ocultar otros elementos
     hide_search_card();
-    hide_welcome(); // Ocultar el mensaje de bienvenida
-    hide_fight_container(); // Ocultar tarjeta de búsqueda
-    hide_all(); // Ocultar digimons
-    hide_Digimon_Capture(); // Ocultar tarjeta de captura
-    hide_collected(); // Ocultar tarjetas de colección
+    hide_welcome();
+    hide_fight_container();
+    hide_all();
+    hide_Digimon_Capture();
+    hide_collected();
+
     const profileCard = document.createElement('div');
     profileCard.className = 'profile_card';
     profileCard.innerHTML = `
@@ -13,15 +25,14 @@ function create_profile(){
             <h1>DigimonApi</h1>
             <p>Santiago Ramirez Torres</p>
         </div>
-        <div class"imagen">
-            <img src="/assets/digimon logo.png" alt="Imagen de perfil">
+        <div class="imagen">
+            <img src="./assets/digimon logo.png" alt="Imagen de perfil">
         </div>
         <div class="description">
             <p>Api con informacion de todos los digimons</p>
         </div>
-        <br><br>
         <div class="info">
-            <small>guithub/AcolombianBoy</small>
+            <small>github/AcolombianBoy</small>
             <small>v. 1.0.1</small>
         </div>
     `;

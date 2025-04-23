@@ -1,5 +1,5 @@
 // Array para almacenar los Digimons coleccionados
-let collectedDigimons = [];
+let collectedDigimons = JSON.parse(localStorage.getItem('collectedDigimons')) || [];
 
 // Función para capturar un Digimon aleatorio
 async function captureDigimon() {
@@ -8,7 +8,6 @@ async function captureDigimon() {
     hide_fight_container();
     hide_all();
     hide_profile();
-    hide
     const container = document.getElementById('digimon-container');
     container.style.display = 'grid'; // Asegúrate de que el contenedor sea visible
     container.innerHTML = ''; // Limpiar el contenedor
@@ -25,6 +24,8 @@ async function captureDigimon() {
         console.log(randomDigimon.img); // Verifica la URL de la image
         // Agregar el Digimon capturado a la lista de coleccionados
         collectedDigimons.push(randomDigimon);
+        // Guardar en localStorage
+        localStorage.setItem('collectedDigimons', JSON.stringify(collectedDigimons));
         // Mostrar el Digimon capturado
         const captureCard = document.createElement('div');
         captureCard.className = 'capture_card';
