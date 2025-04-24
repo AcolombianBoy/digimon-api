@@ -1,11 +1,21 @@
 async function Digimon_fight() {
-    hide_welcome(); // Ocultar el mensaje de bienvenida
-    hide_search_card(); // Ocultar tarjeta de búsqueda
+    hide_welcome();
+    hide_search_card();
     playTheme();
     hide_all();
     hide_profile();
-    const container = document.getElementById('fight_container');
-    container.style.display = 'flex'; // Asegúrate de que el contenedor sea visible
+
+    const main = document.getElementById('main');
+    // Crear el contenedor si no existe
+    let container = document.getElementById('fight_container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'fight_container';
+        container.className = 'fight_flex';
+        main.appendChild(container);
+    }
+
+    container.style.display = 'flex';
     container.innerHTML = ''; // Limpiar el contenedor
     try {
         const response = await fetch('https://digimon-api.vercel.app/api/digimon');

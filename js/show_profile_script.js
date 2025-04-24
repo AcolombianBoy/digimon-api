@@ -1,9 +1,15 @@
-function create_profile(){
-    const profile_container = document.getElementById('profile_container');
-    
-    // Hacer visible el contenedor primero
+function create_profile() {
+    const main = document.getElementById('main');
+    // Crear el contenedor si no existe
+    let profile_container = document.getElementById('profile_container');
+    if (!profile_container) {
+        profile_container = document.createElement('div');
+        profile_container.id = 'profile_container';
+        profile_container.className = 'profile_flex';
+        main.appendChild(profile_container);
+    }
+
     profile_container.style.display = 'flex';
-    
     // Verificar si ya existe una tarjeta de perfil
     const existingCard = document.querySelector('.profile_card');
     if (existingCard) {

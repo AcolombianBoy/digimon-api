@@ -3,11 +3,21 @@ async function fetchDigimons() {
     try {
         hide_welcome();
         hide_search_card();
-        hide_fight_container(); 
+        hide_fight_container();
         hide_profile();
-        hide_collected(); 
-        hide_Digimon_Capture(); 
-        const container = document.getElementById('digimon-container');
+        hide_collected();
+        hide_Digimon_Capture();
+
+        const main = document.getElementById('main');
+        // Crear el contenedor si no existe
+        let container = document.getElementById('digimon-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'digimon-container';
+            container.className = 'grid-container';
+            main.appendChild(container);
+        }
+        
         container.style.display = 'grid'; // Asegúrate de que el contenedor sea visible
         const response = await fetch('https://digimon-api.vercel.app/api/digimon'); 
         if (!response.ok) {
@@ -16,7 +26,7 @@ async function fetchDigimons() {
         const data = await response.json();
         displayDigimons(data); // Mostrar los Digimons en pantalla
     } catch (error) {
-        console.error('Error al obtener los Digimons:', error);
+        console.error('Error:', error);
     }
 }
 

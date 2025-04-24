@@ -28,7 +28,6 @@ async function searchDigimon() {
     // Hacer visible el contenedor de búsqueda
     container.style.display = 'grid';
     container.innerHTML = ''; // Limpiar resultados anteriores
-
     try {
         const response = await fetch('https://digimon-api.vercel.app/api/digimon');
         if (!response.ok) {
@@ -46,7 +45,6 @@ async function searchDigimon() {
             digimon.name.toLowerCase().includes(searchInput) && 
             digimon.name.toLowerCase() !== searchInput
         );
-
         // Mostrar resultados
         if (exactMatch.length > 0) {
             displayDigimon(exactMatch);

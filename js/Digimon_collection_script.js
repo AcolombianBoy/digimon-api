@@ -1,8 +1,15 @@
 // Función para mostrar los Digimons coleccionados
 function showCollectedDigimons() {
-    const container = document.getElementById('digimon-container');
-    
-    // Asegurarse de que el contenedor sea visible y limpiar contenido anterior
+    const main = document.getElementById('main');
+    // Crear el contenedor si no existe
+    let container = document.getElementById('digimon-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'digimon-container';
+        container.className = 'grid-container';
+        main.appendChild(container);
+    }
+
     container.style.display = 'grid';
     container.innerHTML = '';
 

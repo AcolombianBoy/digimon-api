@@ -8,8 +8,18 @@ async function captureDigimon() {
     hide_fight_container();
     hide_all();
     hide_profile();
-    const container = document.getElementById('digimon-container');
-    container.style.display = 'grid'; // Asegúrate de que el contenedor sea visible
+
+    const main = document.getElementById('main');
+    // Crear el contenedor si no existe
+    let container = document.getElementById('digimon-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'digimon-container';
+        container.className = 'grid-container';
+        main.appendChild(container);
+    }
+
+    container.style.display = 'grid';
     container.innerHTML = ''; // Limpiar el contenedor
     try {
         const response = await fetch('https://digimon-api.vercel.app/api/digimon');

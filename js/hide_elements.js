@@ -9,24 +9,23 @@ function hide_search_card(){
         console.log('No se encontraron elementos con la clase "search_card".');
     }
 }
+function hide_all() {
+    const all = document.getElementById('digimon-container');
+    if (all) {
+        all.remove(); // Eliminar el contenedor en lugar de ocultarlo
+    }
+}
+
 function hide_fight_container() {
     const fight_cards = document.getElementById('fight_container');
     if(fight_cards) {
-        fight_cards.style.display = 'none'; 
+        fight_cards.remove(); // Eliminar el contenedor en lugar de ocultarlo
     }else {
         console.warn('No se encontró ningún elemento con el ID "fight_card".');
     }
     const audio = document.getElementById('fight_theme');
     audio.pause(); // Pausar el audio
     audio.currentTime = 0; // Reiniciar el tiempo del audio  
-}
-function hide_all() {
-    const all = document.getElementById('digimon-container');
-    if (all) {
-        all.style.display = 'none'; // Ocultar digimons
-    } else {
-        console.warn('No se encontró ningún elemento con el ID "card".');
-    }
 }
 function hide_Digimon_Capture() {
     const captureCards = document.getElementsByClassName('capture_card');
@@ -48,8 +47,8 @@ function hide_collected() {
 }
 function hide_profile(){
     const container = document.getElementById('profile_container');
-    if(container) { // Verifica si el elemento existe
-        container.style.display = 'none'; // Ocultar el contenedor de perfil
+    if(container) {
+        container.remove(); // Eliminar el contenedor en lugar de ocultarlo
     } else {
         console.warn('No se encontró ningún elemento con el ID "profile_container".');
     }
