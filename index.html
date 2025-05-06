@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikipedia de Digimons</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#FF0000">
+    <meta name="description" content="Una enciclopedia de Digimons con funciones de búsqueda, captura y batalla">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="DigiWiki">
+    <link rel="apple-touch-icon" href="./assets/icons/icon-152x152.png">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/search_system_style.css">
     <link rel="stylesheet" href="./css/show_digimon_system_styles.css">
@@ -11,6 +18,20 @@
     <link rel="stylesheet" href="./css/capture_system_style.css">
     <link rel="stylesheet" href="./css/profile_style.css">
 </head>
+<script>
+    // Registrar el Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(registration => {
+                    console.log('ServiceWorker registrado con éxito:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Error al registrar el ServiceWorker:', error);
+                });
+        });
+    }
+</script>
 <body>
     <header>
         <div class="banner">
@@ -66,5 +87,6 @@
     <script src="./js/capture_digimon_script.js"></script>
     <script src="./js/Digimon_collection_script.js"></script>
     <script src="./js/show_profile_script.js"></script>
+
     </body>
 </html>
